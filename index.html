@@ -128,18 +128,9 @@
     }
 
     .logo {
-      font-family: "Montserrat", sans-serif;
-      font-size: 1.8rem;
-      font-weight: 800;
-      color: var(--primary);
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .logo span {
-      color: var(--secondary);
+      display: block;
+      width: 150px;
+      height: auto;
     }
 
     nav ul {
@@ -772,6 +763,10 @@
         flex-direction: column;
         align-items: center;
       }
+
+      .logo {
+        width: 100px;
+      }
     }
 
     @media (max-width: 576px) {
@@ -799,6 +794,10 @@
       section {
         padding: 60px 0;
       }
+
+      .logo {
+        width: 80px;
+      }
     }
   </style>
 </head>
@@ -812,8 +811,8 @@
   <!-- Header -->
   <header>
     <div class="container header-container">
-      <a href="#" class="logo">
-        <img src="https://i.ibb.co/YBkmcFDk/dbm64px.png" />
+      <a href="#">
+        <img class="logo" src="./dbmred.svg" />
       </a>
 
       <div class="mobile-menu">
@@ -1092,17 +1091,18 @@
       <div class="testimonials-grid">
         <div class="testimonial-card">
           <p class="testimonial-content">
-            Compré mi primera moto con ellos y la experiencia fue increíble.
-            La asesoría fue personalizada y la financiación que me ofrecieron
-            se adaptó perfecto a mi presupuesto.
+            compre mi primer moto en 2022, y en 2025 volvi x otra!!! la verdad, excelente atención y venta!! pronto
+            volveremos x mas!!!!
           </p>
           <div class="testimonial-author">
             <div class="author-img">
-              <img src="https://randomuser.me/api/portraits/men/22.jpg" alt="Martín Rodríguez" />
+              <img
+                src="https://lh3.googleusercontent.com/a-/ALV-UjXbu7sYzZ4HPu5xM8dA3TIk0rzis9HCoPijkuYmlHY7igXpLhaA=w72-h72-p-rp-mo-ba3-br100"
+                alt="Tamara Fernandez" />
             </div>
             <div class="author-info">
-              <h4>Martín Rodríguez</h4>
-              <p>Compra: Honda CB500F</p>
+              <h4>Tamara Fernandez</h4>
+              <p></p>
               <div class="rating">
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
@@ -1116,17 +1116,18 @@
 
         <div class="testimonial-card">
           <p class="testimonial-content">
-            Excelente servicio postventa. Cuando tuve un problema con mi moto
-            a los 4 meses, me la recibieron en el taller sin costo y me dieron
-            una de cortesía mientras la reparaban.
+            La verdad muy buena atención del vendedor Gabriel. Y demás personal y muy satisfecho con la compra de mi TVS
+            200 4V RTR.
           </p>
           <div class="testimonial-author">
             <div class="author-img">
-              <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Carolina Méndez" />
+              <img
+                src="https://lh3.googleusercontent.com/a/ACg8ocIvy7E1gPP5gS01lJFJEYq8Se24BrgQow6F_FUfYv9dGGlxIA=w72-h72-p-rp-mo-br100"
+                alt="Ismael Martinez" />
             </div>
             <div class="author-info">
-              <h4>Carolina Méndez</h4>
-              <p>Compra: Yamaha MT-07</p>
+              <h4>Ismael Martinez</h4>
+              <p>Compra: TVS 200 4V RTR</p>
               <div class="rating">
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
@@ -1140,23 +1141,28 @@
 
         <div class="testimonial-card">
           <p class="testimonial-content">
-            Vendí mi moto anterior con ellos y el proceso fue muy
-            transparente. Me pagaron lo acordado sin demoras y me ayudaron a
-            encontrar la moto perfecta para reemplazarla.
+            Tenía para vender una moto complicada, por la antiguedad, por ser una moto modificada y porque tenia una
+            complicación con el patentamiento. En si la moto estaba buenisima, pero no era un caso facil.
+            En DBM motos me ayudaron desde el primer momento con toda la gestión, fue un lujo. La moto la vendieron en
+            semanas, por la plata que esperaba, y se hicieron cargo de todo.
+            Me imagino que el comprador estará feliz con mi ex Cafe Racer, yo feliz de que tenga un nuevo dueño que
+            pueda disfrutarla más.
           </p>
           <div class="testimonial-author">
             <div class="author-img">
-              <img src="https://randomuser.me/api/portraits/men/41.jpg" alt="Luis Fernández" />
+              <img
+                src="https://lh3.googleusercontent.com/a-/ALV-UjVirm6Uw2gxxm9rqfzDdKFGSxA5UbWzZidgKLYNMsDQHl1PfbzY=w72-h72-p-rp-mo-br100 alt="
+                Fernando Moroni" />
             </div>
             <div class="author-info">
-              <h4>Luis Fernández</h4>
-              <p>Compra: Kawasaki Ninja 400</p>
+              <h4>Fernando Moroni</h4>
+              <p>Venta: Cafe Racer</p>
               <div class="rating">
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
-                <i class="fas fa-star-half-alt"></i>
+                <i class="fas fa-star"></i>
               </div>
             </div>
           </div>
