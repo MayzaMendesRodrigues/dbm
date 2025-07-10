@@ -1,3 +1,4 @@
+
 // Mobile Menu Toggle
     const mobileMenu = document.querySelector(".mobile-menu");
     const navMenu = document.querySelector("nav ul");
@@ -170,6 +171,44 @@ benefits.forEach((benefit) => {
   benefitCard.querySelector("p").textContent = benefit.description;
 
   benefitsGrid.appendChild(benefitCard);
+});
+
+// How It Works Data
+const steps = [
+  {
+    number: "1",
+    title: "Elegí tu moto",
+    description: "Seleccioná el modelo que más te guste de nuestro catálogo.",
+  },
+  {
+    number: "2",
+    title: "Contactanos",
+    description: "Agendá una visita para ver y probar la moto.",
+  },
+  {
+    number: "3",
+    title: "Personalizá tu pago",
+    description: "Elegí la forma de pago que mejor se adapte a tus necesidades.",
+  },
+  {
+    number: "4",
+    title: "Recibí tu moto",
+    description: "Retirala en nuestro local o te la llevamos a domicilio.",
+  },
+];
+
+// Populate Step Cards
+const stepsContainer = document.querySelector(".steps-container");
+const stepTemplate = document.querySelector("#step-template");
+
+steps.forEach((step) => {
+  const stepCard = stepTemplate.content.cloneNode(true);
+
+  stepCard.querySelector(".step-number").textContent = step.number;
+  stepCard.querySelector("h3").textContent = step.title;
+  stepCard.querySelector("p").textContent = step.description;
+
+  stepsContainer.appendChild(stepCard);
 });
     // You can add next/prev buttons and event listeners to control the slider
     // For simplicity, this example doesn't include them.
