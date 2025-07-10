@@ -65,117 +65,33 @@
     <div class="container">
       <h2 class="section-title">Motos Destacadas</h2>
       <div class="bikes-grid">
-        <div class="bike-card">
-          <div class="bike-badge">Destacada</div>
-          <div class="bike-image">
-            <img
-              src="https://instagram.fpsr1-1.fna.fbcdn.net/v/t39.30808-6/496003464_1361313191729115_5027130973323952250_n.jpg?stp=dst-jpg_e35_tt6&efg=eyJ2ZW5jb2RlX3RhZyI6IkNBUk9VU0VMX0lURU0uaW1hZ2VfdXJsZ2VuLjEyMDB4MTIwMC5zZHIuZjMwODA4LmRlZmF1bHRfaW1hZ2UifQ&_nc_ht=instagram.fpsr1-1.fna.fbcdn.net&_nc_cat=103&_nc_oc=Q6cZ2QGowgK7zhykc_LwZ1Hfa3is9DHQ64xFMb_FpLmGu6uLQNx2_hTb-sg6v2IEueEfVHU&_nc_ohc=XWBG9omyvAcQ7kNvwG2Ne9G&_nc_gid=4Nw_GL_HWAbxXr5fhb7cYA&edm=APoiHPcAAAAA&ccb=7-5&ig_cache_key=MzYyODk1MzkzODg1NjQ4MTMzMQ%3D%3D.3-ccb7-5&oh=00_AfOddxUEN63m4lBca8qeye-ghyaGbKegPGdgIhl5cbGyFw&oe=6862A7FC&_nc_sid=22de04"
-              alt="Rouser NS 200" />
-          </div>
-          <div class="bike-info">
-            <h3>Rouser Ns 200</h3>
-            <div class="bike-specs">
-              <div class="spec-item">
-                <i class="fas fa-tachometer-alt"></i>
-                <span>2023</span>
-              </div>
-              <div class="spec-item">
-                <i class="fas fa-road"></i>
-                <span>18.000 km</span>
-              </div>
-              <div class="spec-item">
-                <i class="fas fa-gas-pump"></i>
-                <span>200cc</span>
-              </div>
+        <template id="bike-card-template">
+          <div class="bike-card">
+            <div class="bike-badge"></div>
+            <div class="bike-image">
+              <img src="" alt="" />
             </div>
-            <div class="bike-price">$4.200.000 <span>ARS</span></div>
-            <a href="#contacto" class="btn">Consultar</a>
-          </div>
-        </div>
-
-        <div class="bike-card">
-          <div class="bike-badge">Oferta</div>
-          <div class="bike-image">
-            <img
-              src="https://instagram.fpsr1-1.fna.fbcdn.net/v/t39.30808-6/496947144_1364660788061022_1975973596662365392_n.jpg?stp=dst-jpg_e35_tt6&efg=eyJ2ZW5jb2RlX3RhZyI6IkNBUk9VU0VMX0lURU0uaW1hZ2VfdXJsZ2VuLjE2MDB4MTYwMC5zZHIuZjMwODA4LmRlZmF1bHRfaW1hZ2UifQ&_nc_ht=instagram.fpsr1-1.fna.fbcdn.net&_nc_cat=106&_nc_oc=Q6cZ2QGowgK7zhykc_LwZ1Hfa3is9DHQ64xFMb_FpLmGu6uLQNx2_hTb-sg6v2IEueEfVHU&_nc_ohc=v-iIEVTRSHQQ7kNvwHAfM-G&_nc_gid=4Nw_GL_HWAbxXr5fhb7cYA&edm=APoiHPcAAAAA&ccb=7-5&ig_cache_key=MzYzMjU3OTA5MTkwMTI2ODQxNA%3D%3D.3-ccb7-5&oh=00_AfPxbHKtZSkQLUvCca8wdbaeKD03Nn4fRUJLNjpshbMSuw&oe=6862BB2B&_nc_sid=22de04"
-              alt="Beta Tempo 150" />
-          </div>
-          <div class="bike-info">
-            <h3>Beta Tempo 150</h3>
-            <div class="bike-specs">
-              <div class="spec-item">
-                <i class="fas fa-tachometer-alt"></i>
-                <span>2021</span>
+            <div class="bike-info">
+              <h3></h3>
+              <div class="bike-specs">
+                <div class="spec-item">
+                  <i class="fas fa-tachometer-alt"></i>
+                  <span class="spec-year"></span>
+                </div>
+                <div class="spec-item">
+                  <i class="fas fa-road"></i>
+                  <span class="spec-km"></span>
+                </div>
+                <div class="spec-item">
+                  <i class="fas fa-gas-pump"></i>
+                  <span class="spec-cc"></span>
+                </div>
               </div>
-              <div class="spec-item">
-                <i class="fas fa-road"></i>
-                <span>12.900 km</span>
-              </div>
-              <div class="spec-item">
-                <i class="fas fa-gas-pump"></i>
-                <span>150cc</span>
-              </div>
+              <div class="bike-price"></div>
+              <a href="#contacto" class="btn">Consultar</a>
             </div>
-            <div class="bike-price">$2.000.000 <span>AR</span></div>
-            <a href="#contacto" class="btn">Consultar</a>
           </div>
-        </div>
-
-        <div class="bike-card">
-          <div class="bike-badge">Novedad</div>
-          <div class="bike-image">
-            <img
-              src="https://instagram.fpsr1-1.fna.fbcdn.net/v/t39.30808-6/486147355_1323506635509771_7685600752346627125_n.jpg?stp=dst-jpg_e35_tt6&efg=eyJ2ZW5jb2RlX3RhZyI6IkNBUk9VU0VMX0lURU0uaW1hZ2VfdXJsZ2VuLjEyMDB4MTIwMC5zZHIuZjMwODA4LmRlZmF1bHRfaW1hZ2UifQ&_nc_ht=instagram.fpsr1-1.fna.fbcdn.net&_nc_cat=103&_nc_oc=Q6cZ2QHNKxFA9wEeVKAHuC67JnEmegjgzi245zKoKPjw9HV669aZq6-zHoofq0NnZfxvwFw&_nc_ohc=mSQR9XcLadgQ7kNvwEI71jA&_nc_gid=7Yf83692BjrEjll_432IHg&edm=APoiHPcAAAAA&ccb=7-5&ig_cache_key=MzUyMjMwMzkwMzE0MTIwNDUzNA%3D%3D.3-ccb7-5&oh=00_AfPLEyxbFI6FN6uO9gMwi1LbKesKJ1vgEU5BD0_1GNBnFw&oe=6862C328&_nc_sid=22de04"
-              alt="Honda XR 150" />
-          </div>
-          <div class="bike-info">
-            <h3>Honda XR 150</h3>
-            <div class="bike-specs">
-              <div class="spec-item">
-                <i class="fas fa-tachometer-alt"></i>
-                <span>2022</span>
-              </div>
-              <div class="spec-item">
-                <i class="fas fa-road"></i>
-                <span>13.000 km</span>
-              </div>
-              <div class="spec-item">
-                <i class="fas fa-gas-pump"></i>
-                <span>150cc</span>
-              </div>
-            </div>
-            <div class="bike-price">$4.500.000 <span>AR</span></div>
-            <a href="#contacto" class="btn">Consultar</a>
-          </div>
-        </div>
-
-        <div class="bike-card">
-          <div class="bike-badge">Recomendada</div>
-          <div class="bike-image">
-            <img
-              src="https://instagram.fpsr1-1.fna.fbcdn.net/v/t39.30808-6/484850476_1320173575843077_5706947333673380218_n.jpg?stp=dst-jpg_e35_tt6&efg=eyJ2ZW5jb2RlX3RhZyI6IkNBUk9VU0VMX0lURU0uaW1hZ2VfdXJsZ2VuLjEyMDB4MTIwMC5zZHIuZjMwODA4LmRlZmF1bHRfaW1hZ2UifQ&_nc_ht=instagram.fpsr1-1.fna.fbcdn.net&_nc_cat=109&_nc_oc=Q6cZ2QE428a5iSlCEudYV7k3M4XYMif2kWKidhZKTl731wVvJppraf2vroTYXZBEavsenhE&_nc_ohc=4xAuLKqGVOkQ7kNvwHPS4ta&_nc_gid=gDUHbbXRIsJFliJST7LZWw&edm=APoiHPcAAAAA&ccb=7-5&ig_cache_key=MzM5ODMwMzkxMTkyNzc0MjE2OQ%3D%3D.3-ccb7-5&oh=00_AfNe2ts6TJ0UqIF1E0qkMCvJ0XV48i75YVGTAnmVJ7m2ow&oe=6862C109&_nc_sid=22de04"
-              alt="Bajaj Dominar D400" />
-          </div>
-          <div class="bike-info">
-            <h3>Bajaj Dominar D400</h3>
-            <div class="bike-specs">
-              <div class="spec-item">
-                <i class="fas fa-tachometer-alt"></i>
-                <span>2022</span>
-              </div>
-              <div class="spec-item">
-                <i class="fas fa-road"></i>
-                <span>2.000 km</span>
-              </div>
-              <div class="spec-item">
-                <i class="fas fa-gas-pump"></i>
-                <span>645cc</span>
-              </div>
-            </div>
-            <div class="bike-price">$6.800.000 <span>AR</span></div>
-            <a href="#contacto" class="btn">Consultar</a>
-          </div>
-        </div>
+        </template>
       </div>
     </div>
   </section>
