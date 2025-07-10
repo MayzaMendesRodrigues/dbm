@@ -1,28 +1,10 @@
+
 // Mobile Menu Toggle
     const mobileMenu = document.querySelector(".mobile-menu");
     const navMenu = document.querySelector("nav ul");
 
     mobileMenu.addEventListener("click", () => {
       navMenu.classList.toggle("active");
-    });
-
-    // FAQ Accordion
-    const faqItems = document.querySelectorAll(".faq-item");
-
-    faqItems.forEach((item) => {
-      const question = item.querySelector(".faq-question");
-
-      question.addEventListener("click", () => {
-        // Close other items
-        faqItems.forEach((otherItem) => {
-          if (otherItem !== item) {
-            otherItem.classList.remove("active");
-          }
-        });
-
-        // Toggle current item
-        item.classList.toggle("active");
-      });
     });
 
     // Smooth scrolling for anchor links
@@ -61,10 +43,10 @@
 
     // Testimonials slider (simple version)
     const testimonialsGrid = document.querySelector(".testimonials-grid");
-    const testimonialCards = document.querySelectorAll(".testimonial-card");
     let currentIndex = 0;
 
     function showTestimonial(index) {
+      const testimonialCards = document.querySelectorAll(".testimonial-card");
       const cardWidth = testimonialCards[0].offsetWidth;
       testimonialsGrid.style.transform = `translateX(-${
         index * cardWidth
@@ -258,6 +240,58 @@ testimonials.forEach((testimonial) => {
   }
 
   testimonialsGrid.appendChild(testimonialCard);
+});
+
+// FAQ Data
+const faqs = [
+  {
+    question: "¿Qué métodos de pago aceptan?",
+    answer: "Aceptamos efectivo, transferencia bancaria y todos los principales medios de pago electrónico. Además, ofrecemos planes de financiación a través de bancos y entidades crediticias asociadas, con opciones de hasta 48 cuotas.",
+  },
+  {
+    question: "¿Puedo revisar la moto antes de comprarla?",
+    answer: "¡Absolutamente! Entendemos lo importante que es asegurarse de la moto perfecta. Por eso, te invitamos a visitar nuestras instalaciones para ver en persona cualquiera de nuestras motos. Podrás inspeccionarla detalladamente, verificar todos sus componentes y resolver cualquier duda que tengas con nuestro equipo.",
+  },
+  {
+    question: "¿Hacen servicio técnico postventa?",
+    answer: "Sí, contamos con taller propio especializado en todas las marcas que comercializamos.",
+  },
+  {
+    question: "¿Puedo entregar mi moto actual como parte de pago?",
+    answer: "Sí, aceptamos tu moto actual como parte de pago. Nuestros técnicos la evaluarán y te ofreceremos un valor de mercado justo que podrás descontar del precio de la moto que deseas adquirir.",
+  },
+];
+
+// Populate FAQ Items
+const faqContainer = document.querySelector(".faq-container");
+const faqItemTemplate = document.querySelector("#faq-item-template");
+
+faqs.forEach((faq) => {
+  const faqItem = faqItemTemplate.content.cloneNode(true);
+
+  faqItem.querySelector(".faq-question").textContent = faq.question;
+  faqItem.querySelector(".faq-answer").textContent = faq.answer;
+
+  faqContainer.appendChild(faqItem);
+});
+
+// FAQ Accordion
+const faqItems = document.querySelectorAll(".faq-item");
+
+faqItems.forEach((item) => {
+  const question = item.querySelector(".faq-question");
+
+  question.addEventListener("click", () => {
+    // Close other items
+    faqItems.forEach((otherItem) => {
+      if (otherItem !== item) {
+        otherItem.classList.remove("active");
+      }
+    });
+
+    // Toggle current item
+    item.classList.toggle("active");
+  });
 });
     // You can add next/prev buttons and event listeners to control the slider
     // For simplicity, this example doesn't include them.
