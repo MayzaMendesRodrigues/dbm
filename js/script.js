@@ -1,4 +1,3 @@
-
 // Mobile Menu Toggle
     const mobileMenu = document.querySelector(".mobile-menu");
     const navMenu = document.querySelector("nav ul");
@@ -209,6 +208,56 @@ steps.forEach((step) => {
   stepCard.querySelector("p").textContent = step.description;
 
   stepsContainer.appendChild(stepCard);
+});
+
+// Testimonials Data
+const testimonials = [
+  {
+    content: "compre mi primer moto en 2022, y en 2025 volvi x otra!!! la verdad, excelente atención y venta!! pronto volveremos x mas!!!!",
+    image: "https://lh3.googleusercontent.com/a-/ALV-UjXbu7sYzZ4HPu5xM8dA3TIk0rzis9HCoPijkuYmlHY7igXpLhaA=w72-h72-p-rp-mo-ba3-br100",
+    alt: "Tamara Fernandez",
+    author: "Tamara Fernandez",
+    buy: "",
+    rating: 5,
+  },
+  {
+    content: "La verdad muy buena atención del vendedor Gabriel. Y demás personal y muy satisfecho con la compra de mi TVS 200 4V RTR.",
+    image: "https://lh3.googleusercontent.com/a/ACg8ocIvy7E1gPP5gS01lJFJEYq8Se24BrgQow6F_FUfYv9dGGlxIA=w72-h72-p-rp-mo-br100",
+    alt: "Ismael Martinez",
+    author: "Ismael Martinez",
+    buy: "Compra: TVS 200 4V RTR",
+    rating: 5,
+  },
+  {
+    content: "Tenía para vender una moto complicada, por la antiguedad, por ser una moto modificada y porque tenia una complicación con el patentamiento. En si la moto estaba buenisima, pero no era un caso facil. En DBM motos me ayudaron desde el primer momento con toda la gestión, fue un lujo. La moto la vendieron en semanas, por la plata que esperaba, y se hicieron cargo de todo. Me imagino que el comprador estará feliz con mi ex Cafe Racer, yo feliz de que tenga un nuevo dueño que pueda disfrutarla más.",
+    image: "https://lh3.googleusercontent.com/a-/ALV-UjVirm6Uw2gxxm9rqfzDdKFGSxA5UbWzZidgKLYNMsDQHl1PfbzY=w72-h72-p-rp-mo-br100",
+    alt: "Fernando Moroni",
+    author: "Fernando Moroni",
+    buy: "Venta: Cafe Racer",
+    rating: 5,
+  },
+];
+
+// Populate Testimonial Cards
+const testimonialCardTemplate = document.querySelector("#testimonial-card-template");
+
+testimonials.forEach((testimonial) => {
+  const testimonialCard = testimonialCardTemplate.content.cloneNode(true);
+
+  testimonialCard.querySelector(".testimonial-content").textContent = testimonial.content;
+  testimonialCard.querySelector(".author-img img").src = testimonial.image;
+  testimonialCard.querySelector(".author-img img").alt = testimonial.alt;
+  testimonialCard.querySelector("h4").textContent = testimonial.author;
+  testimonialCard.querySelector(".author-buy").textContent = testimonial.buy;
+
+  const ratingContainer = testimonialCard.querySelector(".rating");
+  for (let i = 0; i < testimonial.rating; i++) {
+    const star = document.createElement("i");
+    star.className = "fas fa-star";
+    ratingContainer.appendChild(star);
+  }
+
+  testimonialsGrid.appendChild(testimonialCard);
 });
     // You can add next/prev buttons and event listeners to control the slider
     // For simplicity, this example doesn't include them.
