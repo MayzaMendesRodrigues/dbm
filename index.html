@@ -135,30 +135,11 @@
     <div class="container">
       <h2 class="section-title">Marcas que trabajamos</h2>
       <div class="brands-grid">
-        <div class="brand-item">
-          <img src="assets/yamaha.svg" alt="Yamaha" />
-        </div>
-        <div class="brand-item">
-          <img src="assets/honda.svg" alt="Honda" />
-        </div>
-        <div class="brand-item">
-          <img src="assets/corven.svg" alt="Corven.svg" />
-        </div>
-        <div class="brand-item">
-          <img src="assets/MOTOMEL.svg" alt="Motomel" />
-        </div>
-        <div class="brand-item">
-          <img src="assets/gilera.svg" alt="Gilera" />
-        </div>
-        <div class="brand-item">
-          <img src="assets/tvs.svg" alt="Tvs" />
-        </div>
-        <div class="brand-item">
-          <img src="assets/siam.svg" alt="Siam" />
-        </div>
-        <div class="brand-item">
-          <img src="assets/bajaj.svg" alt="Bajaj" />
-        </div>
+        <template id="brand-item-template">
+          <div class="brand-item">
+            <img src="" alt="" />
+          </div>
+        </template>
       </div>
     </div>
   </section>
@@ -231,40 +212,32 @@
             experiencia. Garantía, financiación y servicio técnico propio.
           </p>
           <div class="social-links">
-            <a href="https://www.facebook.com/motosdbm"><i class="fab fa-facebook-f"></i></a>
-            <a href="https://www.instagram.com/dbmmotos/"><i class="fab fa-instagram"></i></a>
-            <a href="https://wa.me/5491173608326?text=Hola,%20quiero%20información%20sobre%20sus%20motos"><i
-                class="fab fa-whatsapp"></i></a>
-            <a href="https://maps.app.goo.gl/qZ5ydZGazjmu46VS6"><i class="fas fa-map-marker-alt"></i></a>
+            <template id="social-link-template">
+              <a href="">
+                <i class=""></i>
+              </a>
+            </template>
           </div>
         </div>
 
         <div class="footer-column">
           <h3>Horario de atención</h3>
           <ul class="footer-links">
-            <li>Lunes a Viernes: 10:00 - 19:00</li>
-            <li>Sábados: 10:00 - 13:00</li>
-            <li>Domingos: Cerrado</li>
-            <li>Feriados: Consultar</li>
+            <template id="footer-link-template">
+              <li></li>
+            </template>
           </ul>
         </div>
 
         <div class="footer-column">
           <h3>Contacto</h3>
           <ul class="contact-info">
-            <li>
-              <i class="fas fa-map-marker-alt"></i>
-              <span>Av. Rivadavia 10801, Liniers, CABA</span>
-            </li>
-            <li>
-.
-              <i class="fas fa-phone"></i>
-              <span>+54 11 7360-8326</span>
-            </li>
-            <li>
-              <i class="fas fa-envelope"></i>
-              <span>motos.dbm@gmail.com</span>
-            </li>
+            <template id="contact-info-template">
+              <li>
+                <i class=""></i>
+                <span></span>
+              </li>
+            </template>
           </ul>
         </div>
       </div>

@@ -293,5 +293,136 @@ faqItems.forEach((item) => {
     item.classList.toggle("active");
   });
 });
+
+// Brands Data
+const brands = [
+  {
+    src: "assets/yamaha.svg",
+    alt: "Yamaha",
+  },
+  {
+    src: "assets/honda.svg",
+    alt: "Honda",
+  },
+  {
+    src: "assets/corven.svg",
+    alt: "Corven",
+  },
+  {
+    src: "assets/motomel.svg",
+    alt: "Motomel",
+  },
+  {
+    src: "assets/gilera.svg",
+    alt: "Gilera",
+  },
+  {
+    src: "assets/tvs.svg",
+    alt: "TVS",
+  },
+  {
+    src: "assets/siam.svg",
+    alt: "Siam",
+  },
+  {
+    src: "assets/bajaj.svg",
+    alt: "Bajaj",
+  },
+];
+
+// Populate Brand Items
+const brandsGrid = document.querySelector(".brands-grid");
+const brandItemTemplate = document.querySelector("#brand-item-template");
+
+brands.forEach((brand) => {
+  const brandItem = brandItemTemplate.content.cloneNode(true);
+
+  brandItem.querySelector("img").src = brand.src;
+  brandItem.querySelector("img").alt = brand.alt;
+
+  brandsGrid.appendChild(brandItem);
+});
+
+// Social Links Data
+const socialLinks = [
+  {
+    href: "https://www.facebook.com/motosdbm",
+    icon: "fab fa-facebook-f",
+  },
+  {
+    href: "https://www.instagram.com/dbmmotos/",
+    icon: "fab fa-instagram",
+  },
+  {
+    href: "https://wa.me/5491173608326?text=Hola,%20quiero%20información%20sobre%20sus%20motos",
+    icon: "fab fa-whatsapp",
+  },
+  {
+    href: "https://maps.app.goo.gl/qZ5ydZGazjmu46VS6",
+    icon: "fas fa-map-marker-alt",
+  },
+];
+
+// Populate Social Links
+const socialLinksContainer = document.querySelector(".social-links");
+const socialLinkTemplate = document.querySelector("#social-link-template");
+
+socialLinks.forEach((link) => {
+  const socialLink = socialLinkTemplate.content.cloneNode(true);
+
+  socialLink.querySelector("a").href = link.href;
+  socialLink.querySelector("i").className = link.icon;
+
+  socialLinksContainer.appendChild(socialLink);
+});
+
+// Footer Links Data
+const footerLinks = [
+  "Lunes a Viernes: 10:00 - 19:00",
+  "Sábados: 10:00 - 13:00",
+  "Domingos: Cerrado",
+  "Feriados: Consultar",
+];
+
+// Populate Footer Links
+const footerLinksContainer = document.querySelector(".footer-links");
+const footerLinkTemplate = document.querySelector("#footer-link-template");
+
+footerLinks.forEach((linkText) => {
+  const footerLink = footerLinkTemplate.content.cloneNode(true);
+
+  footerLink.querySelector("li").textContent = linkText;
+
+  footerLinksContainer.appendChild(footerLink);
+});
+
+// Contact Info Data
+const contactInfo = [
+  {
+    icon: "fas fa-map-marker-alt",
+    text: "Av. Rivadavia 10801, Liniers, CABA",
+  },
+  {
+    icon: "fas fa-phone",
+    text: "+54 11 7360-8326",
+  },
+  {
+    icon: "fas fa-envelope",
+    text: "motos.dbm@gmail.com",
+  },
+];
+
+// Populate Contact Info
+const contactInfoContainer = document.querySelector(".contact-info");
+const contactInfoTemplate = document.querySelector("#contact-info-template");
+
+contactInfo.forEach((info) => {
+  const contactInfoItem = contactInfoTemplate.content.cloneNode(true);
+
+  contactInfoItem.querySelector("i").className = info.icon;
+  contactInfoItem.querySelector("span").textContent = info.text;
+
+  contactInfoContainer.appendChild(contactInfoItem);
+});
     // You can add next/prev buttons and event listeners to control the slider
     // For simplicity, this example doesn't include them.
