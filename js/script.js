@@ -1,4 +1,3 @@
-
 // Mobile Menu Toggle
     const mobileMenu = document.querySelector(".mobile-menu");
     const navMenu = document.querySelector("nav ul");
@@ -133,6 +132,44 @@ bikes.forEach((bike) => {
   bikeCard.querySelector(".bike-price").innerHTML = bike.price;
 
   bikesGrid.appendChild(bikeCard);
+});
+
+// Benefits Data
+const benefits = [
+  {
+    icon: "fas fa-shield-alt",
+    title: "Garantía en todas las motos",
+    description: "Todas nuestras motos pasan por una revisión técnica completa y cuentan con garantía.",
+  },
+  {
+    icon: "fas fa-hand-holding-usd",
+    title: "Financiación personalizada",
+    description: "Planes de pago adaptados a tus necesidades. Tasas competitivas y aprobación rápida.",
+  },
+  {
+    icon: "fas fa-tools",
+    title: "Revisión técnica completa",
+    description: "Cada moto pasa por nuestro taller especializado para garantizar su óptimo funcionamiento.",
+  },
+  {
+    icon: "fas fa-bolt",
+    title: "Entrega inmediata",
+    description: "Recibí tu moto en el momento con todos los papeles en regla y lista para rodar.",
+  },
+];
+
+// Populate Benefit Cards
+const benefitsGrid = document.querySelector(".benefits-grid");
+const benefitCardTemplate = document.querySelector("#benefit-card-template");
+
+benefits.forEach((benefit) => {
+  const benefitCard = benefitCardTemplate.content.cloneNode(true);
+
+  benefitCard.querySelector(".benefit-icon i").className = benefit.icon;
+  benefitCard.querySelector("h3").textContent = benefit.title;
+  benefitCard.querySelector("p").textContent = benefit.description;
+
+  benefitsGrid.appendChild(benefitCard);
 });
     // You can add next/prev buttons and event listeners to control the slider
     // For simplicity, this example doesn't include them.
