@@ -163,7 +163,7 @@ function loadReviews(reviews) {
   const firstFiveReviews = reviews.slice(0, 5);
   firstFiveReviews.forEach(review => {
     const testimonialCard = testimonialCardTemplate.content.cloneNode(true);
-    testimonialCard.querySelector(".testimonial-content").textContent = review.text_html;
+    testimonialCard.querySelector(".testimonial-content").textContent = review.text;
     testimonialCard.querySelector(".author-img img").src = review.reviewer_picture_url;
     testimonialCard.querySelector(".author-img img").alt = review.reviewer_name;
     testimonialCard.querySelector("h4").textContent = review.reviewer_name;
