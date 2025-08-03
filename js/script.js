@@ -1,4 +1,3 @@
-
 // Mobile Menu Toggle
 const mobileMenu = document.querySelector(".mobile-menu");
 const navMenu = document.querySelector("nav ul");
@@ -41,7 +40,6 @@ window.addEventListener("scroll", () => {
   }
 });
 
-// Testimonials slider (simple version)
 const testimonialsGrid = document.querySelector(".testimonials-grid");
 let currentIndex = 0;
 
@@ -55,40 +53,27 @@ function showTestimonial(index) {
 const bikesGrid = document.querySelector(".bikes-grid");
 const bikeCardTemplate = document.querySelector("#bike-card-template");
 
-async function fetchBikes() {
+async function loadBikes(data) {
   try {
-    const response = await fetch("https://api.dbmmotos.com.ar/products", {
-      headers: {
-        "Authorization": "cc584a6a-36dc-4978-a2a1-15993ddd3971"
-      }
-    });
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
-    const data = await response.json();
-
     bikesGrid.innerHTML = '';
 
-    data.products.forEach(productData => {
+    const productsWithImages = data.products.filter(productData => productData.images && productData.images.length > 0);
+    const firstTenProducts = productsWithImages.slice(0, 10);
+
+    firstTenProducts.forEach(productData => {
       const bikeCard = bikeCardTemplate.content.cloneNode(true);
       const { product, salePrice, images } = productData;
 
       bikeCard.querySelector(".bike-badge").textContent = product.type || 'Destacada';
 
       const firstImage = images.find(img => img.primary) || images[0];
-      if (firstImage) {
-        bikeCard.querySelector(".bike-image img").src = firstImage.url;
-      } else {
-        bikeCard.querySelector(".bike-image img").src = 'assets/dbmred.svg';
-      }
-
+      bikeCard.querySelector(".bike-image img").src = firstImage.url;
       bikeCard.querySelector(".bike-image img").alt = `${product.brand} ${product.model}`;
       bikeCard.querySelector("h3").textContent = `${product.brand} ${product.model}`;
       bikeCard.querySelector(".spec-year").textContent = product.year;
       bikeCard.querySelector(".spec-km").textContent = `${product.mileage} km`;
       bikeCard.querySelector(".spec-cc").textContent = `${product.cylinder}cc`;
       bikeCard.querySelector(".bike-price").innerHTML = `${new Intl.NumberFormat('es-AR').format(salePrice)} <span>ARS</span>`;
-
       bikesGrid.appendChild(bikeCard);
     });
   } catch (error) {
@@ -96,9 +81,6 @@ async function fetchBikes() {
     bikesGrid.innerHTML = '<p>Error al cargar las motos. Por favor, intente más tarde.</p>';
   }
 }
-
-// Initial fetch of bikes
-fetchBikes();
 
 // Benefits Data
 const benefits = [
@@ -176,55 +158,29 @@ steps.forEach((step) => {
   stepsContainer.appendChild(stepCard);
 });
 
-// Testimonials Data
-const testimonials = [
-  {
-    content: "compre mi primer moto en 2022, y en 2025 volvi x otra!!! la verdad, excelente atención y venta!! pronto volveremos x mas!!!!",
-    image: "https://lh3.googleusercontent.com/a-/ALV-UjXbu7sYzZ4HPu5xM8dA3TIk0rzis9HCoPijkuYmlHY7igXpLhaA=w72-h72-p-rp-mo-ba3-br100",
-    alt: "Tamara Fernandez",
-    author: "Tamara Fernandez",
-    buy: "",
-    rating: 5,
-  },
-  {
-    content: "La verdad muy buena atención del vendedor Gabriel. Y demás personal y muy satisfecho con la compra de mi TVS 200 4V RTR.",
-    image: "https://lh3.googleusercontent.com/a/ACg8ocIvy7E1gPP5gS01lJFJEYq8Se24BrgQow6F_FUfYv9dGGlxIA=w72-h72-p-rp-mo-br100",
-    alt: "Ismael Martinez",
-    author: "Ismael Martinez",
-    buy: "Compra: TVS 200 4V RTR",
-    rating: 5,
-  },
-  {
-    content: "Tenía para vender una moto complicada, por la antiguedad, por ser una moto modificada y porque tenia una complicación con el patentamiento. En si la moto estaba buenisima, pero no era un caso facil. En DBM motos me ayudaron desde el primer momento con toda la gestión, fue un lujo. La moto la vendieron en semanas, por la plata que esperaba, y se hicieron cargo de todo. Me imagino que el comprador estará feliz con mi ex Cafe Racer, yo feliz de que tenga un nuevo dueño que pueda disfrutarla más.",
-    image: "https://lh3.googleusercontent.com/a-/ALV-UjVirm6Uw2gxxm9rqfzDdKFGSxA5UbWzZidgKLYNMsDQHl1PfbzY=w72-h72-p-rp-mo-br100",
-    alt: "Fernando Moroni",
-    author: "Fernando Moroni",
-    buy: "Venta: Cafe Racer",
-    rating: 5,
-  },
-];
-
-// Populate Testimonial Cards
-const testimonialCardTemplate = document.querySelector("#testimonial-card-template");
-
-testimonials.forEach((testimonial) => {
+function loadReviews(data) {
+  const testimonialCardTemplate = document.querySelector("#testimonial-card-template");
   const testimonialCard = testimonialCardTemplate.content.cloneNode(true);
 
-  testimonialCard.querySelector(".testimonial-content").textContent = testimonial.content;
-  testimonialCard.querySelector(".author-img img").src = testimonial.image;
-  testimonialCard.querySelector(".author-img img").alt = testimonial.alt;
-  testimonialCard.querySelector("h4").textContent = testimonial.author;
-  testimonialCard.querySelector(".author-buy").textContent = testimonial.buy;
+  const firstFiveReviews = data.slice(0, 5);
+  firstFiveReviews.forEach(review => {
+    testimonialCard.querySelector(".testimonial-content").textContent = data.textHtml;
+    testimonialCard.querySelector(".author-img img").src = data.reviewerPictureUrl;
+    testimonialCard.querySelector(".author-img img").alt = data.reviewerName;
+    testimonialCard.querySelector("h4").textContent = data.reviewerName;
 
-  const ratingContainer = testimonialCard.querySelector(".rating");
-  for (let i = 0; i < testimonial.rating; i++) {
-    const star = document.createElement("i");
-    star.className = "fas fa-star";
-    ratingContainer.appendChild(star);
-  }
+    const ratingContainer = testimonialCard.querySelector(".rating");
+    for (let i = 0; i < data.rating; i++) {
+      const star = document.createElement("i");
+      star.className = "fas fa-star";
+      ratingContainer.appendChild(star);
+    }
 
-  testimonialsGrid.appendChild(testimonialCard);
-});
+    testimonialsGrid.appendChild(testimonialCard);
+  })
+}
+
+
 
 // FAQ Data
 const faqs = [
@@ -408,5 +364,49 @@ contactInfo.forEach((info) => {
 
   contactInfoContainer.appendChild(contactInfoItem);
 });
-// You can add next/prev buttons and event listeners to control the slider
-// For simplicity, this example doesn't include them.
+
+
+const pageContentCacheKey = 'page-content-key';
+const pageContentCacheDuration = 12 * 60 * 60 * 1000;
+
+function fetchPageContent() {
+  return new Promise(function(resolve) {
+    const cachedData = localStorage.getItem(pageContentCacheKey);
+    if (cachedData) {
+      const { timestamp, data } = JSON.parse(cachedData);
+      const isCacheValid = (new Date().getTime() - timestamp) < pageContentCacheDuration;
+      if (isCacheValid) {
+        resolve(data);
+        return;
+      }
+    }
+
+    fetch("https://api.dbmmotos.com.ar/dbm_content.json")
+      .then(response => {
+        if (!response.ok) {
+          console.error(`HTTP error! status: ${response.status}`);
+          resolve(null);
+        } else {
+          return response.json();
+        }
+      })
+      .then(data => {
+        if (data) {
+          localStorage.setItem(
+            pageContentCacheKey,
+            JSON.stringify({ timestamp: new Date().getTime(), data })
+          );
+          resolve(data);
+        }
+      })
+      .catch(error => {
+        console.error('Error fetching data:', error);
+        resolve(null);
+      });
+  });
+}
+
+fetchPageContent().then(data => {
+  loadBikes(data.products);
+  loadReviews(data.reviews)
+});
