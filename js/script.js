@@ -53,11 +53,11 @@ function showTestimonial(index) {
 const bikesGrid = document.querySelector(".bikes-grid");
 const bikeCardTemplate = document.querySelector("#bike-card-template");
 
-async function loadBikes(data) {
+async function loadBikes(bikes) {
   try {
     bikesGrid.innerHTML = '';
 
-    const productsWithImages = data.products.filter(productData => productData.images && productData.images.length > 0);
+    const productsWithImages = bikes.filter(productData => productData.images && productData.images.length > 0);
     const firstTenProducts = productsWithImages.slice(0, 10);
 
     firstTenProducts.forEach(productData => {
@@ -249,7 +249,7 @@ const brands = [
     alt: "Corven",
   },
   {
-    src: "assets/motomel.svg",
+    src: "assets/motomel_.svg",
     alt: "Motomel",
   },
   {
@@ -381,7 +381,7 @@ function fetchPageContent() {
       }
     }
 
-    fetch("https://api.dbmmotos.com.ar/dbm_content.json")
+    fetch("https://api.dbmmotos.com.ar/dbm_content.json", { mode: 'cors' })
       .then(response => {
         if (!response.ok) {
           console.error(`HTTP error! status: ${response.status}`);
