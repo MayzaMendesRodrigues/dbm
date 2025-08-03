@@ -160,14 +160,13 @@ steps.forEach((step) => {
 
 function loadReviews(reviews) {
   const testimonialCardTemplate = document.querySelector("#testimonial-card-template");
-
   const firstFiveReviews = reviews.slice(0, 5);
   firstFiveReviews.forEach(review => {
     const testimonialCard = testimonialCardTemplate.content.cloneNode(true);
-    testimonialCard.querySelector(".testimonial-content").textContent = review.textHtml;
-    testimonialCard.querySelector(".author-img img").src = review.reviewerPictureUrl;
-    testimonialCard.querySelector(".author-img img").alt = review.reviewerName;
-    testimonialCard.querySelector("h4").textContent = review.reviewerName;
+    testimonialCard.querySelector(".testimonial-content").textContent = review.text_html;
+    testimonialCard.querySelector(".author-img img").src = review.reviewer_picture_url;
+    testimonialCard.querySelector(".author-img img").alt = review.reviewer_name;
+    testimonialCard.querySelector("h4").textContent = review.reviewer_name;
 
     const ratingContainer = testimonialCard.querySelector(".rating");
     for (let i = 0; i < review.rating; i++) {
