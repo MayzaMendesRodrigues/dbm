@@ -158,19 +158,19 @@ steps.forEach((step) => {
   stepsContainer.appendChild(stepCard);
 });
 
-function loadReviews(data) {
+function loadReviews(reviews) {
   const testimonialCardTemplate = document.querySelector("#testimonial-card-template");
   const testimonialCard = testimonialCardTemplate.content.cloneNode(true);
 
-  const firstFiveReviews = data.slice(0, 5);
+  const firstFiveReviews = reviews.slice(0, 5);
   firstFiveReviews.forEach(review => {
-    testimonialCard.querySelector(".testimonial-content").textContent = data.textHtml;
-    testimonialCard.querySelector(".author-img img").src = data.reviewerPictureUrl;
-    testimonialCard.querySelector(".author-img img").alt = data.reviewerName;
-    testimonialCard.querySelector("h4").textContent = data.reviewerName;
+    testimonialCard.querySelector(".testimonial-content").textContent = review.textHtml;
+    testimonialCard.querySelector(".author-img img").src = review.reviewerPictureUrl;
+    testimonialCard.querySelector(".author-img img").alt = review.reviewerName;
+    testimonialCard.querySelector("h4").textContent = review.reviewerName;
 
     const ratingContainer = testimonialCard.querySelector(".rating");
-    for (let i = 0; i < data.rating; i++) {
+    for (let i = 0; i < review.rating; i++) {
       const star = document.createElement("i");
       star.className = "fas fa-star";
       ratingContainer.appendChild(star);
