@@ -406,7 +406,10 @@ function fetchPageContent() {
   });
 }
 
-fetchPageContent().then(data => {
-  loadBikes(data.products);
-  loadReviews(data.reviews)
+document.addEventListener('DOMContentLoaded', function() {
+  fetchPageContent().then(data => {
+    loadBikes(data.products);
+    loadReviews(data.reviews)
+  });
 });
+
