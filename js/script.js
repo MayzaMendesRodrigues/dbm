@@ -57,23 +57,34 @@ async function loadBikes(bikes) {
   try {
     bikesGrid.innerHTML = '';
 
-    const productsWithImages = bikes.filter(productData => productData.images && productData.images.length > 0);
-    const firstTenProducts = productsWithImages.slice(0, 10);
+    const firstTenProducts = bikes.slice(0, 10);
 
     firstTenProducts.forEach(productData => {
       const bikeCard = bikeCardTemplate.content.cloneNode(true);
-      const { product, salePrice, images } = productData;
+      const { product, salePrice, images, permalink } = productData;
 
       bikeCard.querySelector(".bike-badge").textContent = product.type || 'Destacada';
 
-      const firstImage = images.find(img => img.primary) || images[0];
-      bikeCard.querySelector(".bike-image img").src = firstImage.url;
+      let imageUrl = 'assets/dbmred.svg';
+      if (images && images.length > 0) {
+        const firstImage = images.find(img => img.primary) || images[0];
+        imageUrl = firstImage.url;
+      }
+
+      bikeCard.querySelector(".bike-image img").src = imageUrl;
       bikeCard.querySelector(".bike-image img").alt = `${product.brand} ${product.model}`;
       bikeCard.querySelector("h3").textContent = `${product.brand} ${product.model}`;
       bikeCard.querySelector(".spec-year").textContent = product.year;
       bikeCard.querySelector(".spec-km").textContent = `${product.mileage} km`;
       bikeCard.querySelector(".spec-cc").textContent = `${product.cylinder}cc`;
       bikeCard.querySelector(".bike-price").innerHTML = `${new Intl.NumberFormat('es-AR').format(salePrice)} <span>ARS</span>`;
+      
+      const cardElement = bikeCard.querySelector('.bike-card');
+      cardElement.style.cursor = 'pointer';
+      cardElement.addEventListener('click', () => {
+        window.open(permalink || 'https://www.mercadolibre.com.ar/', '_blank');
+      });
+
       bikesGrid.appendChild(bikeCard);
     });
   } catch (error) {
