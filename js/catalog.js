@@ -182,8 +182,7 @@ function fetchPageContent() {
       }
     }
 
-    //const url = "https://api.dbmmotos.com.ar/dbm_content.json";
-    const url = "http://localhost:8080/dbm_content.json";
+    const url = "https://api.dbmmotos.com.ar/dbm_content.json";
 
     fetch(url, { mode: 'cors' })
       .then(response => {
