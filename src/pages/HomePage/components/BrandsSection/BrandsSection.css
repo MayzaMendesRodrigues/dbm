@@ -1,0 +1,12 @@
+    .brands {
+      background-color: var(--gray);
+    }
+
+    .brands-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 40px;
+      margin-top: 40px;
+    }
