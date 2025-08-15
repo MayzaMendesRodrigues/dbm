@@ -34,11 +34,11 @@ const Header: React.FC<HeaderProps> = ({ navItems = [] }) => {
         <nav>
           <ul className={menuActive ? 'active' : ""}>
             {pagesLinks.map((pageLink) => (
-              <li key={pageLink.text}>
+              <li key={pageLink.text} onClick={handleMenuToggle}>
                 <Link to={pageLink.url}>{pageLink.text}</Link>
               </li>))}
             {navItems.map((item) => (
-              <li key={item.text}>
+              <li key={item.text} onClick={handleMenuToggle}>
                 <a href={item.url}>{item.text}</a>
               </li>
             ))}
