@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.e347d11b.css",
-    "main.js": "/static/js/main.8ad5c4fe.js",
+    "main.css": "/static/css/main.4f722015.css",
+    "main.js": "/static/js/main.87bd1893.js",
     "static/js/453.68711c62.chunk.js": "/static/js/453.68711c62.chunk.js",
     "static/media/motomel.svg": "/static/media/motomel.d531c6b73b56b730b3c96fbdd8f2704d.svg",
     "static/media/honda.svg": "/static/media/honda.d4a021c37bdc4960a798468eb303ff6c.svg",
@@ -14,12 +14,12 @@
     "static/media/siam.svg": "/static/media/siam.b0613c4eff264fae97325b8bc95758e2.svg",
     "static/media/yamaha.svg": "/static/media/yamaha.0d5f6bafaa4d2510bd7a8f0b9f47b953.svg",
     "index.html": "/index.html",
-    "main.e347d11b.css.map": "/static/css/main.e347d11b.css.map",
-    "main.8ad5c4fe.js.map": "/static/js/main.8ad5c4fe.js.map",
+    "main.4f722015.css.map": "/static/css/main.4f722015.css.map",
+    "main.87bd1893.js.map": "/static/js/main.87bd1893.js.map",
     "453.68711c62.chunk.js.map": "/static/js/453.68711c62.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.e347d11b.css",
-    "static/js/main.8ad5c4fe.js"
+    "static/css/main.4f722015.css",
+    "static/js/main.87bd1893.js"
   ]
 }
