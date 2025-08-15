@@ -40,3 +40,13 @@ export interface Review {
   text: string;
   title: string | null;
 }
+
+export { };
+
+declare global {
+  interface Window {
+    goatcounter?: {
+      count: (params: { path: string; title?: string }) => void;
+    };
+  }
+}

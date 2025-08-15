@@ -1,21 +1,26 @@
 import './Footer.css'
+import { EventAnalytics, pushEvent } from '../../../analytics/analytics';
 
 const socialLinks = [
   {
     href: "https://www.facebook.com/motosdbm",
     icon: "fab fa-facebook-f",
+    analyticsEvent: EventAnalytics.FooterFacebookLink,
   },
   {
     href: "https://www.instagram.com/dbmmotos/",
     icon: "fab fa-instagram",
+    analyticsEvent: EventAnalytics.FooterInstagramLink,
   },
   {
     href: "https://wa.me/5491173608326?text=Hola,%20quiero%20información%20sobre%20sus%20motos",
     icon: "fab fa-whatsapp",
+    analyticsEvent: EventAnalytics.FooterWhatsappLink,
   },
   {
     href: "https://maps.app.goo.gl/qZ5ydZGazjmu46VS6",
     icon: "fas fa-map-marker-alt",
+    analyticsEvent: EventAnalytics.FooterGoogleMapsLink,
   },
 ]
 
@@ -41,7 +46,6 @@ const contactInfo = [
   },
 ];
 
-
 const Footer: React.FC = () => {
   return (
     <footer>
@@ -55,7 +59,8 @@ const Footer: React.FC = () => {
             </p>
             <div className="social-links">
               {socialLinks.map(({ href, icon }, index) => (
-                <a key={index} href={href}>
+                <a key={index} href={href}
+                  onClick={() => pushEvent(socialLinks[index].analyticsEvent)}>
                   <i className={icon}></i>
                 </a>
               ))}

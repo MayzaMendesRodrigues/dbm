@@ -13,7 +13,10 @@ const HeroSection: React.FC = () => {
           </p>
           <div className="hero-btns">
             <Button href="/catalog" text="Ver catálogo" />
-            <Button variant="outline" href="#contacto" text="Contactar Ahora" />
+            <Button
+              variant="outline"
+              href="https://wa.me/5491173608326?text=Hola,%20quiero%20información%20sobre%20sus%20motos"
+              text="Contactar Ahora" />
           </div>
         </div>
       </div>
