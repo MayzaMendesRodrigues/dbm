@@ -4,6 +4,7 @@ import BikeCarousel from '../Carousel/BikeCarousel'
 import { Bike } from '../../../../types';
 import React, { useEffect } from 'react';
 import defaultImage from '../../../../assets/images/dbmblack.svg';
+import { pushEvent, EventAnalytics } from '../../../../analytics/analytics';
 
 interface BikeModalProps {
   bike: Bike;
@@ -52,7 +53,7 @@ const BikeModal: React.FC<BikeModalProps> = ({ bike, isOpen, onClose }) => {
             href={`https://wa.me/5491173608326?text=Hola,%20estoy%20interesado%20en%20la%20moto%20${product.brand}%20${product.model}`}
             target="_blank"
             rel="noopener noreferrer"
-          >
+            onClick={() => pushEvent(EventAnalytics.ModalWhatsappButton)}>
             Contactar por WhatsApp
           </a>
         </div>
