@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.46f07007.css",
-    "main.js": "/static/js/main.87bd1893.js",
+    "main.js": "/static/js/main.e0fb5350.js",
     "static/js/453.68711c62.chunk.js": "/static/js/453.68711c62.chunk.js",
     "static/media/motomel.svg": "/static/media/motomel.d531c6b73b56b730b3c96fbdd8f2704d.svg",
     "static/media/honda.svg": "/static/media/honda.d4a021c37bdc4960a798468eb303ff6c.svg",
@@ -15,11 +15,11 @@
     "static/media/yamaha.svg": "/static/media/yamaha.0d5f6bafaa4d2510bd7a8f0b9f47b953.svg",
     "index.html": "/index.html",
     "main.46f07007.css.map": "/static/css/main.46f07007.css.map",
-    "main.87bd1893.js.map": "/static/js/main.87bd1893.js.map",
+    "main.e0fb5350.js.map": "/static/js/main.e0fb5350.js.map",
     "453.68711c62.chunk.js.map": "/static/js/453.68711c62.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.46f07007.css",
-    "static/js/main.87bd1893.js"
+    "static/js/main.e0fb5350.js"
   ]
 }
