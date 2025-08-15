@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/static/css/main.46f07007.css",
-    "main.js": "/static/js/main.e0fb5350.js",
-    "static/js/453.68711c62.chunk.js": "/static/js/453.68711c62.chunk.js",
-    "static/media/motomel.svg": "/static/media/motomel.d531c6b73b56b730b3c96fbdd8f2704d.svg",
-    "static/media/honda.svg": "/static/media/honda.d4a021c37bdc4960a798468eb303ff6c.svg",
-    "static/media/dbmred.svg": "/static/media/dbmred.32644aaa16df1af09c33eaf8fde8f9b0.svg",
-    "static/media/dbmblack.svg": "/static/media/dbmblack.2587e599c4e977d0955f97f1e8beb83a.svg",
-    "static/media/bajaj.svg": "/static/media/bajaj.b0af7b4162970d69cf48b3dc8ece0b77.svg",
-    "static/media/gilera.svg": "/static/media/gilera.f6894a23c1dfafcc5ad6aa0088b4d963.svg",
-    "static/media/corven.svg": "/static/media/corven.e1809cf7ac172285dd3bb6d1b96b2b48.svg",
-    "static/media/tvs.svg": "/static/media/tvs.e336261eef93546644db4f53a8b08eed.svg",
-    "static/media/siam.svg": "/static/media/siam.b0613c4eff264fae97325b8bc95758e2.svg",
-    "static/media/yamaha.svg": "/static/media/yamaha.0d5f6bafaa4d2510bd7a8f0b9f47b953.svg",
-    "index.html": "/index.html",
-    "main.46f07007.css.map": "/static/css/main.46f07007.css.map",
-    "main.e0fb5350.js.map": "/static/js/main.e0fb5350.js.map",
-    "453.68711c62.chunk.js.map": "/static/js/453.68711c62.chunk.js.map"
+    "main.css": "/dbm/static/css/main.46f07007.css",
+    "main.js": "/dbm/static/js/main.31ada076.js",
+    "static/js/453.68711c62.chunk.js": "/dbm/static/js/453.68711c62.chunk.js",
+    "static/media/motomel.svg": "/dbm/static/media/motomel.d531c6b73b56b730b3c96fbdd8f2704d.svg",
+    "static/media/honda.svg": "/dbm/static/media/honda.d4a021c37bdc4960a798468eb303ff6c.svg",
+    "static/media/dbmred.svg": "/dbm/static/media/dbmred.32644aaa16df1af09c33eaf8fde8f9b0.svg",
+    "static/media/dbmblack.svg": "/dbm/static/media/dbmblack.2587e599c4e977d0955f97f1e8beb83a.svg",
+    "static/media/bajaj.svg": "/dbm/static/media/bajaj.b0af7b4162970d69cf48b3dc8ece0b77.svg",
+    "static/media/gilera.svg": "/dbm/static/media/gilera.f6894a23c1dfafcc5ad6aa0088b4d963.svg",
+    "static/media/corven.svg": "/dbm/static/media/corven.e1809cf7ac172285dd3bb6d1b96b2b48.svg",
+    "static/media/tvs.svg": "/dbm/static/media/tvs.e336261eef93546644db4f53a8b08eed.svg",
+    "static/media/siam.svg": "/dbm/static/media/siam.b0613c4eff264fae97325b8bc95758e2.svg",
+    "static/media/yamaha.svg": "/dbm/static/media/yamaha.0d5f6bafaa4d2510bd7a8f0b9f47b953.svg",
+    "index.html": "/dbm/index.html",
+    "main.46f07007.css.map": "/dbm/static/css/main.46f07007.css.map",
+    "main.31ada076.js.map": "/dbm/static/js/main.31ada076.js.map",
+    "453.68711c62.chunk.js.map": "/dbm/static/js/453.68711c62.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.46f07007.css",
-    "static/js/main.e0fb5350.js"
+    "static/js/main.31ada076.js"
   ]
 }
