@@ -54,9 +54,14 @@ nav a:hover {
 
 /* Responsive */
 
-@media (max-width: 768px) {
+@media (max-width: 1280px) {
+
   .mobile-menu {
     display: block;
+  }
+
+  .Header-container {
+    justify-content: space-between;
   }
 
   nav ul {

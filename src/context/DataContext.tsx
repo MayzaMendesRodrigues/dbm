@@ -28,7 +28,7 @@ const DataContext = createContext<DataContextType | undefined>(undefined);
 const PAGE_CONTENT_CACHE_KEY = 'page-content-key';
 const PAGE_CONTENT_CACHE_DURATION = 12 * 60 * 60 * 1000; // 12 hours
 const CONTENT_URL = 'https://api.dbmmotos.com.ar/dbm_content.json';
-//const CONTENT_URL = '/dbm_content.json'; 
+//const CONTENT_URL = '../../.local/dbm_content.json';
 
 const getCachedData = <T,>(): T | null => {
   try {
