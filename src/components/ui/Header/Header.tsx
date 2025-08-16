@@ -4,21 +4,13 @@ import logoImage from '../../../assets/images/dbmred.svg';
 import { useState, useEffect } from 'react';
 import { pushEvent, EventAnalytics } from '../../../analytics/analytics';
 
-interface NavItem {
-  text: string;
-  url: string;
-}
-
-interface HeaderProps {
-  navItems?: NavItem[];
-}
-
 const pagesLinks = [
-  { text: 'Inicio', url: '/' },
-  { text: 'Catálogo', url: '/catalog' },
+  { text: 'Inicio', url: '/', nav: true },
+  { text: 'Catálogo', url: '/catalog', nav: true },
+  { text: 'Contacto', url: 'https://wa.me/5491173608326?text=Hola,%20quiero%20información%20sobre%20sus%20motos', nav: false },
 ]
 
-const Header: React.FC<HeaderProps> = ({ navItems = [] }) => {
+const Header: React.FC = () => {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const handleMenuToggle = () => {
@@ -34,25 +26,15 @@ const Header: React.FC<HeaderProps> = ({ navItems = [] }) => {
     document.body.style.overflow = isMobileMenuOpen ? 'hidden' : 'unset';
   }, [isMobileMenuOpen])
 
-  const addNavItems = (items: NavItem[]) => {
-    return items.map((item) => (
-      <li key={item.text} >
-        {
-          item.url.startsWith('/') ? (
-            <Link to={item.url}>{item.text}</Link>
-          ) : (
-            <a href={item.url}>{item.text}</a>
-          )
-        }
-      </li>
-    ))
-  }
-
   const nav = (
     <nav>
       <ul>
-        {addNavItems(pagesLinks)}
-        {addNavItems(navItems)}
+        {pagesLinks.map((item) => (
+          <li key={item.text} >
+            {item.nav ? <Link to={item.url}>{item.text}</Link>
+              : <a href={item.url} rel="noreferrer" target="_blank">{item.text}</a>}
+          </li>
+        ))}
       </ul >
     </nav>
   )
