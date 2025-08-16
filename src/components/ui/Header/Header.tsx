@@ -1,7 +1,7 @@
 import './Header.css';
 import { Link } from 'react-router-dom';
 import logoImage from '../../../assets/images/dbmred.svg';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { pushEvent, EventAnalytics } from '../../../analytics/analytics';
 
 interface NavItem {
@@ -19,40 +19,65 @@ const pagesLinks = [
 ]
 
 const Header: React.FC<HeaderProps> = ({ navItems = [] }) => {
-  const [menuActive, setMenuActive] = useState(false);
+  const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const handleMenuToggle = () => {
-    if (!menuActive) {
-      pushEvent(EventAnalytics.BurguerButton)
-    }
-    setMenuActive((prev) => !prev);
+    setMobileMenuOpen(prevState => {
+      if (!prevState) {
+        pushEvent(EventAnalytics.BurguerButton);
+      }
+      return !prevState;
+    });
   };
 
+  useEffect(() => {
+    document.body.style.overflow = isMobileMenuOpen ? 'hidden' : 'unset';
+  }, [isMobileMenuOpen])
+
+  const addNavItems = (items: NavItem[]) => {
+    return items.map((item) => (
+      <li key={item.text} >
+        {
+          item.url.startsWith('/') ? (
+            <Link to={item.url}>{item.text}</Link>
+          ) : (
+            <a href={item.url}>{item.text}</a>
+          )
+        }
+      </li>
+    ))
+  }
+
+  const nav = (
+    <nav>
+      <ul>
+        {addNavItems(pagesLinks)}
+        {addNavItems(navItems)}
+      </ul >
+    </nav>
+  )
+
   return (
-    <header>
-      <div className="Header container Header-container">
+    <header className="Header">
+      <div className="Header-container container">
         <Link to="/">
           <img className="Header-logo" src={logoImage} alt="DBM Red Logo" />
         </Link>
-
-        <nav>
-          <ul className={menuActive ? 'active' : ""}>
-            {pagesLinks.map((pageLink) => (
-              <li key={pageLink.text} onClick={handleMenuToggle}>
-                <Link to={pageLink.url}>{pageLink.text}</Link>
-              </li>))}
-            {navItems.map((item) => (
-              <li key={item.text} onClick={handleMenuToggle}>
-                <a href={item.url}>{item.text}</a>
-              </li>
-            ))}
-          </ul>
-        </nav>
-
-        <div className="mobile-menu" onClick={handleMenuToggle}>
-          <i className="fas fa-bars"></i>
+        <div className="desktop-nav">
+          {nav}
         </div>
 
+        <button className="mobile-menu-button" onClick={handleMenuToggle} aria-label="Open menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        {isMobileMenuOpen && (
+          <div className={`mobile-nav ${isMobileMenuOpen ? 'open' : ''}`}>
+            {nav}
+          </div>)
+        }
       </div>
     </header>
   );
