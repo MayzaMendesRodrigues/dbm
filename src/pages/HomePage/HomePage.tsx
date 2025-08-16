@@ -8,17 +8,10 @@ import FAQSection from './components/FAQSection/FAQSection'
 import ContactSection from './components/ContactSection/ContactSection'
 import Header from '../../components/ui/Header/Header'
 
-const homeNavItems = [
-  { text: 'Beneficios', url: '#benefits' },
-  { text: 'Marcas', url: '#brands' },
-  { text: 'Testimonios', url: '#reviews' },
-  { text: 'Contacto', url: '#contact' },
-]
-
 const HomePage: React.FC = () => {
   return (
     <div>
-      <Header navItems={homeNavItems} />
+      <Header />
       <HeroSection />
       <FeaturedSection />
       <BenefitsSection />
