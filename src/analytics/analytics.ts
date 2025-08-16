@@ -1,5 +1,6 @@
 
 export enum EventAnalytics {
+  BurguerButton = "BurguerButton",
   FooterWhatsappButton = "FooterWhatsappButton",
   FooterCallButton = "FooterCallButton",
   ModalWhatsappButton = "ModalWhatsappButton",
@@ -17,6 +18,7 @@ type EventMeta = {
 };
 
 const eventMap: Record<EventAnalytics, EventMeta> = {
+  [EventAnalytics.BurguerButton]: { category: "Navegation", type: "BurguerButton", label: "Menu Mobile" },
   [EventAnalytics.FooterWhatsappButton]: { category: "Contacto", type: "Whatsapp", label: "Boton Whatsapp Footer" },
   [EventAnalytics.FooterCallButton]: { category: "Contacto", type: "PhoneNumber", label: "Boton Llamar Footer" },
   [EventAnalytics.ModalWhatsappButton]: { category: "Contacto", type: "Whatsapp", label: "Boton Whatsapp Modal" },

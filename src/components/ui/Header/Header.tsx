@@ -2,6 +2,7 @@ import './Header.css';
 import { Link } from 'react-router-dom';
 import logoImage from '../../../assets/images/dbmred.svg';
 import { useState } from 'react';
+import { pushEvent, EventAnalytics } from '../../../analytics/analytics';
 
 interface NavItem {
   text: string;
@@ -21,6 +22,9 @@ const Header: React.FC<HeaderProps> = ({ navItems = [] }) => {
   const [menuActive, setMenuActive] = useState(false);
 
   const handleMenuToggle = () => {
+    if (!menuActive) {
+      pushEvent(EventAnalytics.BurguerButton)
+    }
     setMenuActive((prev) => !prev);
   };
 
