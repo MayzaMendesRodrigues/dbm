@@ -88,7 +88,7 @@ const Footer: React.FC = () => {
         </div>
 
         <div className="footer-bottom">
-          <p>&copy; 2023 DBM Motos. Todos los derechos reservados.</p>
+          <p>&copy; 2025 DBM - Concesionario de Motos Usadas y 0km en Liniers, Buenos Aires</p>
         </div>
       </div>
     </footer>
