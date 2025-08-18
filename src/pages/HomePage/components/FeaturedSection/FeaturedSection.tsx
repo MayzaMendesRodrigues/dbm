@@ -2,6 +2,7 @@ import './FeaturedSection.css';
 import Catalog from '../../../../components/feature/Catalog/Catalog';
 import { useData } from '../../../../context/DataContext'
 import Button from '../../../../components/ui/Button'
+import { EventAnalytics, pushEvent } from '../../../../analytics/analytics';
 
 const FeaturedSection: React.FC = () => {
   const { data } = useData();
@@ -24,7 +25,11 @@ const FeaturedSection: React.FC = () => {
       <div className="container">
         <h2 className="section-title">Motos Destacadas</h2>
         <Catalog catalog={firstTenProducts} />
-        <Button href="/catalog" text="Ver más" />
+        <Button
+          href="/catalog"
+          text="Ver más"
+          onClick={() => pushEvent(EventAnalytics.FeaturedSeeMoreButton)}
+        />
       </div>
     </section>
   );
