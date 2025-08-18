@@ -40,7 +40,7 @@ const BikeModal: React.FC<BikeModalProps> = ({ bike, isOpen, onClose }) => {
           <div className="modal-bike-specs">
             <Spec variant="year" text={product.year.toString()} />
             <Spec variant="km" text={product.mileage.toString()} />
-            <Spec variant="cc" text={product.year.toString()} />
+            <Spec variant="cc" text={product.cylinder.toString()} />
           </div>
           <p
             className="modal-bike-price"
