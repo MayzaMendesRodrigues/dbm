@@ -25,7 +25,7 @@ const BikeCard: React.FC<BikeCardProps> = ({ bike, onClick }) => {
         <div className="bike-specs">
           <Spec variant="year" text={product.year.toString()} />
           <Spec variant="km" text={product.mileage.toString()} />
-          <Spec variant="cc" text={product.year.toString()} />
+          <Spec variant="cc" text={product.cylinder.toString()} />
         </div>
         <div className="bike-price">${salePrice.toLocaleString('es-AR')}</div>
       </div>
