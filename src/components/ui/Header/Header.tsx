@@ -6,8 +6,18 @@ import { pushEvent, EventAnalytics } from '../../../analytics/analytics';
 
 const pagesLinks = [
   { text: 'Inicio', url: '/', nav: true },
-  { text: 'Catálogo', url: '/catalog', nav: true },
-  { text: 'Contacto', url: 'https://wa.me/5491173608326?text=Hola,%20quiero%20información%20sobre%20sus%20motos', nav: false },
+  {
+    text: 'Catálogo',
+    url: '/catalog',
+    nav: true,
+    analytics: EventAnalytics.NavLinkCatalog
+  },
+  {
+    text: 'Contacto',
+    url: 'https://wa.me/5491173608326?text=Hola,%20quiero%20información%20sobre%20sus%20motos',
+    nav: false,
+    analytics: EventAnalytics.NavLinkContact,
+  },
 ]
 
 const Header: React.FC = () => {
@@ -26,11 +36,17 @@ const Header: React.FC = () => {
     document.body.style.overflow = isMobileMenuOpen ? 'hidden' : 'unset';
   }, [isMobileMenuOpen])
 
+  const handleNavClick = (pageIndex: number) => {
+    if (pagesLinks[pageIndex].analytics) {
+      pushEvent(pagesLinks[pageIndex].analytics!!)
+    }
+  }
+
   const nav = (
     <nav>
       <ul>
-        {pagesLinks.map((item) => (
-          <li key={item.text} >
+        {pagesLinks.map((item, index) => (
+          <li key={item.text} onClick={() => handleNavClick(index)} >
             {item.nav ? <Link to={item.url}>{item.text}</Link>
               : <a href={item.url} rel="noreferrer" target="_blank">{item.text}</a>}
           </li>

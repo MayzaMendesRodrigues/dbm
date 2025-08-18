@@ -4,6 +4,10 @@ export enum EventAnalytics {
   FooterWhatsappButton = "FooterWhatsappButton",
   FooterCallButton = "FooterCallButton",
   ModalWhatsappButton = "ModalWhatsappButton",
+  FeaturedSeeMoreButton = "FeaturedSeeMoreButton",
+  NavLinkCatalog = "NavLinkCatalog",
+  NavLinkContact = "NavLinkContact",
+  BikeModalOpen = "CatalogBikeModal",
   FloatingWhatsappButton = "FloatingWhatsappButton",
   FooterInstagramLink = "FooterInstagramLink",
   FooterFacebookLink = "FooterFacebookLink",
@@ -18,8 +22,12 @@ type EventMeta = {
 };
 
 const eventMap: Record<EventAnalytics, EventMeta> = {
+  [EventAnalytics.NavLinkCatalog]: { category: "Navegation", type: "Catalog", label: "Nav Link Catalogo" },
+  [EventAnalytics.BikeModalOpen]: { category: "Discovery", type: "BikeModal", label: "Modal Moto Abierto" },
+  [EventAnalytics.FeaturedSeeMoreButton]: { category: "Discovery", type: "Catalog", label: "Boton Ver Mas Inicio" },
   [EventAnalytics.BurguerButton]: { category: "Navegation", type: "BurguerButton", label: "Menu Mobile" },
   [EventAnalytics.FooterWhatsappButton]: { category: "Contacto", type: "Whatsapp", label: "Boton Whatsapp Footer" },
+  [EventAnalytics.NavLinkContact]: { category: "Contacto", type: "Whatsapp", label: "Nav Link Whatsapp" },
   [EventAnalytics.FooterCallButton]: { category: "Contacto", type: "PhoneNumber", label: "Boton Llamar Footer" },
   [EventAnalytics.ModalWhatsappButton]: { category: "Contacto", type: "Whatsapp", label: "Boton Whatsapp Modal" },
   [EventAnalytics.FloatingWhatsappButton]: { category: "Contacto", type: "Whatsapp", label: "Boton Whatsapp Flotante" },
