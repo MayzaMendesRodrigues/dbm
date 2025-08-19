@@ -1,3 +1,99 @@
+.review {
+  flex-shrink: 0;
+  width: 100%;
+  min-height: 20rem;
+  padding: 2rem 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  transition: min-height 0.5s ease-in-out;
+}
+
+.review-content {
+  max-width: 48rem;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Quote styles */
+.quote-container {
+  margin-bottom: 2rem;
+}
+
+.quote-text {
+  font-size: 1.25rem;
+  color: #374151;
+  line-height: 1.625;
+  font-weight: 300;
+  font-style: italic;
+  margin: 0;
+}
+
+/* Author info */
+.author-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.author-avatar {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.author-details {
+  text-align: center;
+}
+
+.author-name {
+  font-weight: 600;
+  color: #111827;
+  font-size: 1.125rem;
+  margin: 0 0 0.25rem 0;
+}
+
+.rating-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.stars-container {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.star {
+  width: 1rem;
+  height: 1rem;
+  transition: color 0.2s ease;
+}
+
+.star.filled {
+  fill: #fbbf24;
+  color: #fbbf24;
+}
+
+.star.empty {
+  fill: #e5e7eb;
+  color: #e5e7eb;
+}
+
+.review-date {
+  color: #6b7280;
+  font-size: 0.875rem;
+}
+
+
+
 .review-card {
   background: var(--light);
   border-radius: 8px;
@@ -59,4 +155,53 @@
 .rating {
   color: #f8ce0b;
   margin-top: 5px;
+}
+
+.read-more-button {
+  background: none;
+  border: none;
+  color: #3b82f6;
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-top: 0.5rem;
+  padding: 0.25rem 0;
+  text-decoration: underline;
+  transition: color 0.2s ease;
+}
+
+/* Responsive styles */
+@media (min-width: 640px) {
+  .quote-text {
+    font-size: 1.25rem;
+  }
+
+  .author-container {
+    flex-direction: row;
+  }
+
+  .author-details {
+    text-align: left;
+  }
+
+  .rating-container {
+    justify-content: flex-start;
+  }
+}
+
+@media (min-width: 1024px) {
+  .quote-text {
+    font-size: 1.5rem;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .quote-text {
+    color: #000;
+  }
+
+  .author-name {
+    color: #000;
+  }
 }
