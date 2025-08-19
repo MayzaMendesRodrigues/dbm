@@ -13,6 +13,10 @@ export enum EventAnalytics {
   FooterFacebookLink = "FooterFacebookLink",
   FooterGoogleMapsLink = "FooterGoogleMapsLink",
   FooterWhatsappLink = "FooterWhatsappLink",
+  FAQPaymentMethods = "FAQPaymentMethods",
+  FAQInspectBike = "FAQInspectBike",
+  FAQAfterSaleService = "FAQAfterSaleService",
+  FAQHandover = "FAQHandover",
 }
 
 type EventMeta = {
@@ -35,6 +39,10 @@ const eventMap: Record<EventAnalytics, EventMeta> = {
   [EventAnalytics.FooterFacebookLink]: { category: "RedSocial", type: "Facebook", label: "Link Facebook Footer" },
   [EventAnalytics.FooterWhatsappLink]: { category: "RedSocial", type: "Whatsapp", label: "Link Whatsapp Footer" },
   [EventAnalytics.FooterGoogleMapsLink]: { category: "Contacto", type: "GoogleMaps", label: "Link GoogleMaps Footer" },
+  [EventAnalytics.FAQPaymentMethods]: { category: "Discovery", type: "FAQ", label: "FAQ Metodos De Pago" },
+  [EventAnalytics.FAQInspectBike]: { category: "Discovery", type: "FAQ", label: "FAQ Revisar Moto" },
+  [EventAnalytics.FAQAfterSaleService]: { category: "Discovery", type: "FAQ", label: "FAQ Servicio Postventa" },
+  [EventAnalytics.FAQHandover]: { category: "Discovery", type: "FAQ", label: "FAQ Entregar Moto" },
 };
 
 export function pushEvent(eventId: EventAnalytics) {
