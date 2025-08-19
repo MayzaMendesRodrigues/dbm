@@ -1,5 +1,6 @@
 import './HeroSection.css'
 import Button from '../../../../components/ui/Button'
+import { EventAnalytics, pushEvent } from '../../../../analytics/analytics';
 
 const HeroSection: React.FC = () => {
   return (
@@ -12,11 +13,17 @@ const HeroSection: React.FC = () => {
             personalizada y entrega inmediata.
           </p>
           <div className="hero-btns">
-            <Button href="/catalog" text="Ver catálogo" />
+            <Button
+              href="/catalog"
+              text="Ver catálogo"
+              onClick={() => pushEvent(EventAnalytics.HeroCatalogButton)}
+            />
             <Button
               variant="outline"
               href="https://wa.me/5491173608326?text=Hola,%20quiero%20información%20sobre%20sus%20motos"
-              text="Contactar Ahora" />
+              text="Contactar Ahora"
+              onClick={() => pushEvent(EventAnalytics.HeroWhatsappButton)}
+            />
           </div>
         </div>
       </div>
