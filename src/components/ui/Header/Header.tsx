@@ -1,83 +1,21 @@
+import React from 'react';
 import './Header.css';
-import { Link } from 'react-router-dom';
-import logoImage from '../../../assets/images/dbmred.svg';
-import { useState, useEffect } from 'react';
-import { pushEvent, EventAnalytics } from '../../../analytics/analytics';
 
-const pagesLinks = [
-  { text: 'Inicio', url: '/', nav: true },
-  {
-    text: 'Catálogo',
-    url: '/catalog',
-    nav: true,
-    analytics: EventAnalytics.NavLinkCatalog
-  },
-  {
-    text: 'Contacto',
-    url: 'https://wa.me/5491173608326?text=Hola,%20quiero%20información%20sobre%20sus%20motos',
-    nav: false,
-    analytics: EventAnalytics.NavLinkContact,
-  },
-]
+type HeaderProps = {
+  title: string;
+  subtitle?: string;
+  children?: React.ReactNode;
+}
 
-const Header: React.FC = () => {
-  const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-  const handleMenuToggle = () => {
-    setMobileMenuOpen(prevState => {
-      if (!prevState) {
-        pushEvent(EventAnalytics.BurguerButton);
-      }
-      return !prevState;
-    });
-  };
-
-  useEffect(() => {
-    document.body.style.overflow = isMobileMenuOpen ? 'hidden' : 'unset';
-  }, [isMobileMenuOpen])
-
-  const handleNavClick = (pageIndex: number) => {
-    if (pagesLinks[pageIndex].analytics) {
-      pushEvent(pagesLinks[pageIndex].analytics!!)
-    }
-  }
-
-  const nav = (
-    <nav>
-      <ul>
-        {pagesLinks.map((item, index) => (
-          <li key={item.text} onClick={() => handleNavClick(index)} >
-            {item.nav ? <Link to={item.url}>{item.text}</Link>
-              : <a href={item.url} rel="noreferrer" target="_blank">{item.text}</a>}
-          </li>
-        ))}
-      </ul >
-    </nav>
-  )
-
+const Header: React.FC<HeaderProps> = ({ title, subtitle, children }) => {
   return (
-    <header className="Header">
-      <div className="Header-container container">
-        <Link to="/">
-          <img className="Header-logo" src={logoImage} alt="DBM Concesionario de Motos Usadas" />
-        </Link>
-        <div className="desktop-nav">
-          {nav}
-        </div>
-
-        <button className="mobile-menu-button" onClick={handleMenuToggle} aria-label="Open menu">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-
-        {isMobileMenuOpen && (
-          <div className={`mobile-nav ${isMobileMenuOpen ? 'open' : ''}`}>
-            {nav}
-          </div>)
-        }
-      </div>
-    </header>
+    <div className="header">
+      <h2 className="title">{title}</h2>
+      {subtitle && (<p className="subtitle">
+        {subtitle}
+      </p>)}
+      {children}
+    </div>
   );
 };
 

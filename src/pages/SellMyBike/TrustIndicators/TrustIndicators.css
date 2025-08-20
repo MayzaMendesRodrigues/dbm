@@ -1,0 +1,50 @@
+.trust-section {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: var(--space-md);
+  animation: fadeInUp 0.6s ease-out 0.4s both;
+}
+
+.trust-item {
+  cursor: default;
+  text-align: center;
+  background-color: var(--light);
+  padding: 16px;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+}
+
+.trust-item:hover {
+  transform: translateY(-5px);
+}
+
+.trust-number {
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--primary);
+  margin-bottom: 4px;
+  font-family: "Montserrat", sans-serif;
+}
+
+.trust-label {
+  font-size: 12px;
+  color: var(--dark-gray);
+  font-family: "Roboto", sans-serif;
+}
+
+@media (max-width: 480px) {
+  .trust-section {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .trust-item {
+    padding: 12px;
+  }
+
+  .trust-number {
+    font-size: 20px;
+  }
+}

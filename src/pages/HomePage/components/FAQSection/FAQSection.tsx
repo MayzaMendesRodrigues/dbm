@@ -7,7 +7,7 @@ const FAQSection: React.FC = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   const toggleFAQ = (index: number) => {
-    if (openIndex != index) {
+    if (openIndex !== index) {
       pushEvent(faqs[index].analyticsId);
     }
     setOpenIndex(prevIndex => (prevIndex === index ? null : index));
