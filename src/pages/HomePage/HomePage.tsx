@@ -6,12 +6,10 @@ import BrandsSection from './components/BrandsSection/BrandsSection'
 import ReviewsSection from './components/ReviewsSection/ReviewsSection'
 import FAQSection from './components/FAQSection/FAQSection'
 import ContactSection from './components/ContactSection/ContactSection'
-import Header from '../../components/ui/Header/Header'
 
 const HomePage: React.FC = () => {
   return (
     <div>
-      <Header />
       <HeroSection />
       <FeaturedSection />
       <BenefitsSection />

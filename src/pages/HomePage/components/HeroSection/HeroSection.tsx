@@ -1,6 +1,7 @@
 import './HeroSection.css'
 import Button from '../../../../components/ui/Button'
 import { EventAnalytics, pushEvent } from '../../../../analytics/analytics';
+import { Pages } from '../../../../constants/constants';
 
 const HeroSection: React.FC = () => {
   return (
@@ -14,7 +15,7 @@ const HeroSection: React.FC = () => {
           </p>
           <div className="hero-btns">
             <Button
-              href="/catalog"
+              href={Pages.Catalog.url}
               text="Ver catálogo"
               onClick={() => pushEvent(EventAnalytics.HeroCatalogButton)}
             />

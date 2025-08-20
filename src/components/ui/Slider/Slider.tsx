@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useCallback, useState, useEffect, useRef } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 import './Slider.css';
@@ -27,7 +27,7 @@ const Slider: React.FC<SliderProps> = ({
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
   const sliderRef = useRef<HTMLDivElement>(null);
 
-  const nextSlide = () => {
+  const nextSlide = useCallback(() => {
     if (isTransitioning) return;
     setIsTransitioning(true);
     setCurrentIndex((prev) => (prev + 1) % content.length);
@@ -35,7 +35,8 @@ const Slider: React.FC<SliderProps> = ({
       onSlideChange();
     }
     setTimeout(() => setIsTransitioning(false), 300);
-  };
+  }, [isTransitioning, onSlideChange, content.length]);
+
 
   const prevSlide = () => {
     if (isTransitioning) return;
@@ -64,7 +65,7 @@ const Slider: React.FC<SliderProps> = ({
         if (intervalRef.current) clearInterval(intervalRef.current);
       };
     }
-  }, [autoPlay, autoPlayInterval, currentIndex]);
+  }, [autoPlay, autoPlayInterval, currentIndex, nextSlide]);
 
   const onTouchStart = (e: React.TouchEvent) => {
     setTouchEnd(null);

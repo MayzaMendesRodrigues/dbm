@@ -26,7 +26,7 @@ const FeaturedSection: React.FC = () => {
         <h2 className="section-title">Motos Destacadas</h2>
         <Catalog catalog={firstTenProducts} />
         <Button
-          href="/catalog"
+          href="/catalogo"
           text="Ver más"
           onClick={() => pushEvent(EventAnalytics.FeaturedSeeMoreButton)}
         />

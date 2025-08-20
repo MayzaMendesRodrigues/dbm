@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import './BikeCarousel.css';
 
@@ -16,12 +16,12 @@ const BikeCarousel: React.FC<CarouselProps> = ({
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
 
-  const nextSlide = () => {
+  const nextSlide = useCallback(() => {
     if (isTransitioning) return;
     setIsTransitioning(true);
     setCurrentIndex((prev) => (prev + 1) % images.length);
     setTimeout(() => setIsTransitioning(false), 300);
-  };
+  }, [isTransitioning, images.length]);
 
   const prevSlide = () => {
     if (isTransitioning) return;
@@ -41,7 +41,7 @@ const BikeCarousel: React.FC<CarouselProps> = ({
     if (!autoPlay) return;
     const interval = setInterval(nextSlide, autoPlayInterval);
     return () => clearInterval(interval);
-  }, [autoPlay, autoPlayInterval, currentIndex]);
+  }, [autoPlay, autoPlayInterval, currentIndex, nextSlide]);
 
   return (
     <div className="bike-carousel">
