@@ -52,21 +52,33 @@ const NavBar: React.FC = () => {
     if (pagesLinks[pageIndex].analytics) {
       pushEvent(pagesLinks[pageIndex].analytics!!)
     }
+    if (isMobileMenuOpen) {
+      setMobileMenuOpen(false)
+    }
   }
 
   const nav = (
     <nav>
       <ul>
         {pagesLinks.map((item, index) => (
-          <li key={item.text} onClick={() => handleNavClick(index)} >
-            {item.nav ? <Link to={item.url}>{item.text}</Link>
-              : <a href={item.url} rel="noreferrer" target="_blank">{item.text}</a>}
+          <li key={item.text} >
+            {item.nav
+              ? <Link
+                to={item.url}
+                onClick={() => handleNavClick(index)}>
+                {item.text}
+              </Link>
+              : <a
+                onClick={() => handleNavClick(index)}
+                href={item.url}
+                rel="noreferrer"
+                target="_blank">{item.text}
+              </a>}
           </li>
         ))}
       </ul >
     </nav>
   )
-
 
   return (
     <div className="navbar">
@@ -85,7 +97,7 @@ const NavBar: React.FC = () => {
         </button>
 
         {isMobileMenuOpen && (
-          <div className={`mobile-nav ${isMobileMenuOpen ? 'open' : ''}`}>
+          <div className="mobile-nav">
             {nav}
           </div>)
         }
