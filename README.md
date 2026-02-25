@@ -13,3 +13,11 @@ Launches the test runner in the interactive watch mode.
 ### `npm run deploy`
 Builds an optimized version of the app for production to the `build` folder. Then pushes the contests to the gh-pages branch.
 
+## Tech Stack
+This project uses the following technologies:
+- React
+- TypeScript
+- Node.js
+- npm
+- GitHub Pages
+
