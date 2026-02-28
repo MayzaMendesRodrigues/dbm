@@ -65,7 +65,7 @@ const BikeCarousel: React.FC<CarouselProps> = ({
         onClick={prevSlide}
         className="bike-carousel-button prev"
         disabled={isTransitioning}>
-        <ChevronLeft size={16} />
+        {ChevronLeft ? <ChevronLeft size={16} /> : '‹'}
       </button>
 
       <button
@@ -73,7 +73,7 @@ const BikeCarousel: React.FC<CarouselProps> = ({
         className="bike-carousel-button next"
         disabled={isTransitioning}
       >
-        <ChevronRight size={16} />
+        {ChevronRight ? <ChevronRight size={16} /> : '›'}
       </button>
 
       <div className="bike-carousel-counter">

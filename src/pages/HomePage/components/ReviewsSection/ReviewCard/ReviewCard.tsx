@@ -12,13 +12,16 @@ const ReviewCard: React.FC<ReviewProps> = ({ review, isExpanded, onToggleExpande
   const maxContentLength = 200;
 
   const renderStars = (rating: number) => {
-    return Array.from({ length: 5 }, (_, index) => (
-      <Star
-        key={index}
-        size={16}
-        className={`star ${index < rating ? 'filled' : 'empty'}`}
-      />
-    ));
+    return Array.from({ length: 5 }, (_, index) => {
+      if (!Star) return <span key={index} className={`star ${index < rating ? 'filled' : 'empty'}`}>★</span>;
+      return (
+        <Star
+          key={index}
+          size={16}
+          className={`star ${index < rating ? 'filled' : 'empty'}`}
+        />
+      );
+    });
   };
 
   const getDisplayText = (content: string) => {
@@ -35,6 +38,10 @@ const ReviewCard: React.FC<ReviewProps> = ({ review, isExpanded, onToggleExpande
   const timeAgo = (timestampInSeconds: number): string => {
     const nowInSeconds = Math.floor(new Date().getTime() / 1000);
     const seconds = nowInSeconds - timestampInSeconds;
+
+    if (seconds < 60) {
+      return 'Reciente';
+    }
 
     let interval = seconds / 31536000;
     if (interval > 1) {
