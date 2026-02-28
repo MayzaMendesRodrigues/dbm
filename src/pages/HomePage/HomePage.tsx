@@ -1,6 +1,7 @@
 import HeroSection from './components/HeroSection/HeroSection'
 import FeaturedSection from './components/FeaturedSection/FeaturedSection'
 import BenefitsSection from './components/BenefitsSection/BenefitsSection'
+import InsuranceConsultingSection from './components/InsuranceConsultingSection/InsuranceConsultingSection'
 import HowItWorksSection from './components/HowItWorksSection/HowItWorksSection'
 import BrandsSection from './components/BrandsSection/BrandsSection'
 import ReviewsSection from './components/ReviewsSection/ReviewsSection'
@@ -13,6 +14,7 @@ const HomePage: React.FC = () => {
       <HeroSection />
       <FeaturedSection />
       <BenefitsSection />
+      <InsuranceConsultingSection />
       <HowItWorksSection />
       <BrandsSection />
       <ReviewsSection />

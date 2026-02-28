@@ -12,6 +12,8 @@ interface InputFieldProps {
   error?: string;
   options?: { value: string; label: string }[];
   Icon?: LucideIcon;
+  multiline?: boolean;
+  rows?: number;
 }
 
 const InputField: React.FC<InputFieldProps> = ({
@@ -24,6 +26,8 @@ const InputField: React.FC<InputFieldProps> = ({
   error,
   options,
   Icon,
+  multiline,
+  rows,
 }) => {
 
   return (
@@ -38,6 +42,8 @@ const InputField: React.FC<InputFieldProps> = ({
       error={!!error}
       helperText={error}
       select={!!options}
+      multiline={multiline}
+      rows={rows}
       InputProps={{
         startAdornment: Icon ? (
           <InputAdornment position="start">
@@ -46,6 +52,7 @@ const InputField: React.FC<InputFieldProps> = ({
         ) : null,
       }}
       variant="outlined"
+      sx={{ mb: 2 }}
     >
       {options && options.map((option) => (
         <MenuItem key={option.value} value={option.value}>
