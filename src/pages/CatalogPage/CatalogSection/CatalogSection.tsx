@@ -1,6 +1,7 @@
 import './CatalogSection.css'
 
 import Catalog from '../../../components/feature/Catalog/Catalog';
+import Fuse from 'fuse.js';
 import React, { useState, useMemo } from 'react';
 import { useData } from '../../../context/DataContext'
 
@@ -9,20 +10,48 @@ const CatalogSection: React.FC = () => {
   const { catalog, isLoading, error } = data;
   const [searchTerm, setSearchTerm] = useState('');
 
+  const fuse = useMemo(() => {
+    const indexed = catalog.map(item => {
+      const { product } = item;
+      return {
+        item,
+        searchable: [
+          product.brand,
+          product.model,
+          product.type,
+          product.color,
+          product.year,
+          product.cylinder,
+        ]
+          .join(' ')
+          .toLowerCase(),
+      };
+    });
+    return new Fuse(indexed, {
+      keys: ['searchable'],
+      threshold: 0.35,
+      ignoreLocation: true,
+      includeScore: true,
+      minMatchCharLength: 2,
+    });
+  }, [catalog]);
+
   const filteredCatalog = useMemo(() => {
-    if (!searchTerm) {
-      return catalog;
-    }
     const tokens = searchTerm.toLowerCase().split(/\s+/).filter(Boolean);
     if (tokens.length === 0) {
       return catalog;
     }
-    return catalog.filter(item => {
-      const { product } = item;
-      const haystack = `${product.brand} ${product.model}`.toLowerCase();
-      return tokens.some(token => haystack.includes(token));
+    const scores = new Map<typeof catalog[number], number>();
+    tokens.forEach(token => {
+      fuse.search(token).forEach(({ item, score = 1 }) => {
+        const relevance = 1 - score;
+        scores.set(item.item, (scores.get(item.item) ?? 0) + relevance);
+      });
     });
-  }, [catalog, searchTerm]);
+    return Array.from(scores.entries())
+      .sort((a, b) => b[1] - a[1])
+      .map(([item]) => item);
+  }, [fuse, catalog, searchTerm]);
 
   if (isLoading) {
     return <p>Cargando el listado..</p>
