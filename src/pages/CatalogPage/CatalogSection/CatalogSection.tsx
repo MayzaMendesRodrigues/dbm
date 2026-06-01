@@ -13,12 +13,14 @@ const CatalogSection: React.FC = () => {
     if (!searchTerm) {
       return catalog;
     }
-    const search = searchTerm.toLowerCase();
+    const tokens = searchTerm.toLowerCase().split(/\s+/).filter(Boolean);
+    if (tokens.length === 0) {
+      return catalog;
+    }
     return catalog.filter(item => {
       const { product } = item;
-      const brand = product.brand.toLowerCase();
-      const model = product.model.toLowerCase();
-      return brand.includes(search) || model.includes(search);
+      const haystack = `${product.brand} ${product.model}`.toLowerCase();
+      return tokens.some(token => haystack.includes(token));
     });
   }, [catalog, searchTerm]);
 
